@@ -6,15 +6,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 @RestController
 @RequestMapping("api/v1/customer")
 public class CustomerController {
 
     @GetMapping
-    public List<Customers> getCustomers() {
+    public Set<Customers> getCustomers() {
 
-        return List.of(
+        return Set.of(
                 new Customers(
                         1,
                         "Muhammad Aqqmar",
