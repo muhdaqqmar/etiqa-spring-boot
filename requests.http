@@ -1,5 +1,19 @@
 ### GET request to example server
 GET http://localhost:8080/
 
-### GET
+###
 GET http://localhost:8080/api/v1/customer
+
+### find by id
+GET http://localhost:8080/api/v1/customer/1
+
+###
+POST http://localhost:8080/api/v1/customer
+Content-Type: application/json
+
+{
+  "firstName" : "Aqqmar",
+  "lastName" : "Zulkarnain",
+  "email" : "muhdaqqmar@gmail.com",
+  "phone" : "0172979003"
+}
