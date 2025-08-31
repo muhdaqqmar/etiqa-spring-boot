@@ -21,15 +21,6 @@ public class Customer {
     private String email;
     private String phone;
 
-    @OneToMany(
-            mappedBy = "customer",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.LAZY
-    )
-
-    private List<FamilyMember> familyMembers;
-
     public Customer() {
     }
 
@@ -52,4 +43,5 @@ public class Customer {
     public int hashCode() {
         return Objects.hash(customer_id, firstName, lastName, email, phone);
     }
+
 }

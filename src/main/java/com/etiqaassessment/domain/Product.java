@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
 
 @Setter
@@ -12,18 +13,20 @@ import java.util.Objects;
 @Entity
 @Table(name="product")
 public class Product {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
-    @Column(name="book_title", nullable=false) private String bookTitle;
-    @Column(name="book_price", nullable=false) private BigDecimal bookPrice;
-    @Column(name="book_quantity", nullable=false) private Integer bookQuantity;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id")
+    private Long product_id;
+    @Column(name="book_title", nullable=false)
+    private String bookTitle;
+    @Column(name="book_price", nullable=false)
+    private BigDecimal bookPrice;
 
     public Product() {
     }
 
-    public Product(Integer bookQuantity, BigDecimal bookPrice, Long id, String bookTitle) {
-        this.bookQuantity = bookQuantity;
+    public Product(BigDecimal bookPrice, Long product_id, String bookTitle) {
         this.bookPrice = bookPrice;
-        this.id = id;
+        this.product_id = product_id;
         this.bookTitle = bookTitle;
     }
 
@@ -31,11 +34,11 @@ public class Product {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return Objects.equals(id, product.id) && Objects.equals(bookTitle, product.bookTitle) && Objects.equals(bookPrice, product.bookPrice) && Objects.equals(bookQuantity, product.bookQuantity);
+        return Objects.equals(product_id, product.product_id) && Objects.equals(bookTitle, product.bookTitle) && Objects.equals(bookPrice, product.bookPrice);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, bookTitle, bookPrice, bookQuantity);
+        return Objects.hash(product_id, bookTitle, bookPrice);
     }
 }

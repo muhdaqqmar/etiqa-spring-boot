@@ -12,8 +12,112 @@ POST http://localhost:8080/api/v1/customer
 Content-Type: application/json
 
 {
-  "firstName" : "Aqqmar",
+  "firstName" : "Muhammad Aqqmar",
   "lastName" : "Zulkarnain",
   "email" : "muhdaqqmar@gmail.com",
   "phone" : "0172979003"
+}
+
+### Update existing customer (PUT = replace all fields)
+PUT http://localhost:8080/api/v1/customer/1
+Content-Type: application/json
+
+{
+  "firstName" : "Updated",
+  "lastName" : "Customer",
+  "email" : "updated@email.com",
+  "phone" : "0123456789"
+}
+
+### ------------------------
+### PRODUCT
+### ------------------------
+
+### Create new family member
+POST http://localhost:8080/api/v1/customer/1/family-members
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "relation": "Brother",
+  "customer": {
+    "id": 1
+  }
+}
+
+### find by id
+GET http://localhost:8080/api/v1/customer/familyMembers/1
+
+### ------------------------
+### PRODUCT
+### ------------------------
+
+### Get all products
+GET http://localhost:8080/api/v1/product
+
+### Find product by ID
+GET http://localhost:8080/api/v1/product/1
+
+### Create new product
+POST http://localhost:8080/api/v1/product
+Content-Type: application/json
+
+{
+  "bookTitle": "HP 7",
+  "bookPrice": 4500.00
+}
+
+### Update product
+PUT http://localhost:8080/api/v1/product/1
+Content-Type: application/json
+
+{
+  "bookTitle": "The Lord Of the Rings",
+  "bookPrice": 6700
+}
+
+### Patch product
+PATCH http://localhost:8080/api/v1/product/1
+Content-Type: application/json
+
+{
+  "bookPrice": 5500.00
+}
+
+### ------------------------
+### ORDER
+### ------------------------
+
+### Get all products
+GET http://localhost:8080/api/v1/orders
+
+
+### Create new order
+POST http://localhost:8080/api/v1/orders
+Content-Type: application/json
+
+{
+  "quantity": 1,
+  "customer_id": 1,
+  "product_id": 1
+}
+
+### Update order
+PUT http://localhost:8080/api/v1/orders/1
+Content-Type: application/json
+
+{
+  "quantity": 5,
+  "customer_id": 1,
+  "product_id": 1
+}
+
+### Patch order
+PATCH http://localhost:8080/api/v1/orders/1
+Content-Type: application/json
+
+{
+  "product_id": 1,
+  "customer_id": 1,
+  "quantity": 9
 }
